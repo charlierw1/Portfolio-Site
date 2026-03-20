@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="my website innit">
+    <link rel="stylesheet" href="styles.css">
+    <title>Yeah</title>
+</head>
+<body>
+    <header>
+        <h1>Look at it spin!</h1>
+    </header>
+    <button type="button" class="rotation-control rotation-control-left" data-direction="previous" aria-label="Show previous section">
+        &#8592;
+    </button>
+    <button type="button" class="rotation-control rotation-control-right" data-direction="next" aria-label="Show next section">
+        &#8594;
+    </button>
+    <main>
+        <section>
+            <h2>Im a header!</h2>
+            <p>Lorem ipsum and that</p>
+            <figure>
+                <img src="https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg" alt="a bunch of eggs" height="150" width="200">
+                <figcaption>a bunch of eggs in a basket because why not</figcaption>
+            </figure>
+            <a href="google.co.uk" target="_blank">Google</a>
+        </section>
+        <section>
+            <h2>Im a header!</h2>
+            <p>Lorem ipsum and that</p>
+            <figure>
+                <img src="https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg" alt="a bunch of eggs" height="150" width="200">
+                <figcaption>a bunch of eggs in a basket because why not</figcaption>
+            </figure>
+            <a href="google.co.uk" target="_blank">Google</a>
+        </section>
+        <section>
+            <h2>Im a header!</h2>
+            <p>Lorem ipsum and that</p>
+            <figure>
+                <img src="https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg" alt="a bunch of eggs" height="150" width="200">
+                <figcaption>a bunch of eggs in a basket because why not</figcaption>
+            </figure>
+            <a href="google.co.uk" target="_blank">Google</a>
+        </section>
+        <section>
+            <h2>Im a header!</h2>
+            <p>Lorem ipsum and that</p>
+            <figure>
+                <img src="https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg" alt="a bunch of eggs" height="150" width="200">
+                <figcaption>a bunch of eggs in a basket because why not</figcaption>
+            </figure>
+            <a href="google.co.uk" target="_blank">Google</a>
+        </section>
+        
+    </main>
+
+    <script>
+        const mainElement = document.querySelector('main');
+        const sections = Array.from(mainElement.querySelectorAll('section'));
+        const previousButton = document.querySelector('[data-direction="previous"]');
+        const nextButton = document.querySelector('[data-direction="next"]');
+
+        const rotationOrder = [3, 0, 1, 2];
+        let activeSectionIndex = 3;
+        let currentRotation = 0;
+
+        function getForwardSteps(currentIndex, targetIndex) {
+            const currentOrderIndex = rotationOrder.indexOf(currentIndex);
+            const targetOrderIndex = rotationOrder.indexOf(targetIndex);
+
+            return (targetOrderIndex - currentOrderIndex + rotationOrder.length) % rotationOrder.length;
+        }
+
+        function applyRotation() {
+            mainElement.style.setProperty('--rotation', `${currentRotation}deg`);
+
+            sections.forEach((section) => {
+                section.style.transform = `rotate(${-currentRotation}deg)`;
+            });
+
+            sections.forEach((section, sectionIndex) => {
+                section.classList.toggle('is-active', sectionIndex === activeSectionIndex);
+            });
+        }
+
+        function rotateToSection(index) {
+            const steps = getForwardSteps(activeSectionIndex, index);
+
+            if (steps === 0) {
+                return;
+            }
+
+            currentRotation += steps * 90;
+            activeSectionIndex = index;
+            applyRotation();
+        }
+
+        function moveToRelativeSection(step) {
+            const currentOrderIndex = rotationOrder.indexOf(activeSectionIndex);
+            const targetOrderIndex = (currentOrderIndex + step + rotationOrder.length) % rotationOrder.length;
+            const targetSectionIndex = rotationOrder[targetOrderIndex];
+
+            currentRotation += step * 90;
+            activeSectionIndex = targetSectionIndex;
+            applyRotation();
+            sections[targetSectionIndex].focus();
+        }
+
+        sections.forEach((section, index) => {
+            section.style.transform = 'rotate(0deg)';
+            section.classList.toggle('is-active', index === activeSectionIndex);
+        });
+
+        sections.forEach((section, index) => {
+            section.tabIndex = 0;
+            section.addEventListener('click', () => rotateToSection(index));
+            section.addEventListener('focusin', () => rotateToSection(index));
+            section.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    rotateToSection(index);
+                }
+            });
+        });
+
+        previousButton.addEventListener('click', () => moveToRelativeSection(-1));
+        nextButton.addEventListener('click', () => moveToRelativeSection(1));
+    </script>
+</body>
+</html>
