@@ -6,6 +6,15 @@ body {
     font-family: "Trade Winds", system-ui;
 }
 
+svg {
+    width: 8em;
+    height: 8em;
+}
+
+a {
+    color: #00FFEE;
+}
+
 header, header div, header ul {
     display: flex;
     justify-content: space-between;
@@ -18,4 +27,13 @@ header svg {
 
 header ul {
     width: 20%;
+}
+
+.skill-card {
+    width: 10em;
+}
+
+.skill-card svg,
+.skill-card svg * {
+    fill: #ffffff;
 }
