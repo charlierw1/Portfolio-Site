@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Charlie Wightman - Portfolio</title>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js" async></script>
 </head>
 <body>
     <header>
@@ -28,17 +29,26 @@
         </ul>
     </header>
     <main>
-        <section>
-            <model-viewer>
-                <!--To be filled once model exists-->
-            </model-viewer>
+        <section class="index-hero">
+            <model-viewer 
+                    id="model"
+                    src="models/dalek-sec.glb"
+                    poster="images/dalek-placeholder.webp"
+                    alt="Dalek Sec" 
+                    auto-rotate 
+                    auto-rotate-delay="0" 
+                    rotation-per-second="20deg" 
+                    interaction-prompt="none" 
+                    disable-zoom style="pointer-events:none;"
+                    tabindex="-1"
+                ></model-viewer>
             <div>
                 <h1>Charlie Wightman</h1>
                 <p>UX Designer | Full Stack Developer</p>
                 <a href="workflow.html">Learn More</a>
             </div>
         </section>
-        <div>
+        <div class="paragraph-box">
             <p>Well rounded skill set that spans the entire design process (user research, personas, journey mapping, wire-framing, prototyping, and high-fidelity UI design). 
             I'm experienced in Figma, comfortable running usability tests, and experienced identifying and transforming user needs into clean, accessible interfaces. 
             My background in front-end development means I speak the same language as the engineers I can collaborate with. 

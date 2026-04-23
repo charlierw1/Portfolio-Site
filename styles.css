@@ -7,6 +7,7 @@ html {
 html,
 body {
     height: 100%;
+    margin: 0;
 }
 
 body {
@@ -29,6 +30,11 @@ a {
     text-decoration: none;
 }
 
+header {
+    border-bottom: solid #ffffff 0.15em;
+    padding: 1em;
+}
+
 header, header div, header ul {
     display: flex;
     justify-content: space-between;
@@ -42,8 +48,27 @@ header svg {
 header ul {
     width: 20%;
     list-style-type: none;
-    margin: 0;
+    margin: auto 0;
     padding: 0;
+}
+
+main {
+    padding: 1em;
+}
+
+.index-hero {
+    display: flex;
+    justify-content: space-around;
+}
+
+#model {
+    width: 20em;
+    height: 30em;
+}
+
+.paragraph-box {
+    max-width: 40em;
+    margin: auto;
 }
 
 .skills-wheel {
@@ -147,7 +172,7 @@ body.skills-page main > h1 {
     background-size: 100% 100%;
     border: solid white 0.1em;
     border-radius: 1em;
-    padding: 1em;
+    padding: 3em;
 
     transform-origin: center center;
     transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(var(--orbit-radius) * -1));
@@ -171,4 +196,5 @@ body.skills-page main > h1 {
 .card svg,
 .card svg * {
     fill: #ffffff;
+    margin: auto;
 }
