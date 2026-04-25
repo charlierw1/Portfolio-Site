@@ -1,0 +1,21 @@
+.hero {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.hero div {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.info {
+    width: 50%;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#dalek-model {
+    width: 20vw;
+    height: 25vw;
+}

@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap');
+
+body {
+    background-image: url('../images/background.jpg');
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    color: white;
+    font-family: "Trade Winds", system-ui;
+    margin: 0;
+}
+
+svg {
+    width: 8em;
+    height: 8em;
+}
+
+a {
+    color: #00FFEE;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header {
+    border-bottom: solid #ffffff 0.15em;
+    padding: 1em;
+}
+
+header, header div, header ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+header svg {
+    width: 3em;
+    height: 3em;
+}
+
+header ul {
+    width: 20%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 1em;
+}
+
+.cta-button {
+    background-color: blue;
+    border: solid white 0.15em;
+    border-radius: 1em;
+    padding: 0.5em;
+    margin: 0.25em auto;
+}
+
+footer {
+    border-top: solid white 0.15em;
+    display: flex;
+    flex-direction: column;
+}
+
+footer p {
+    margin: 1em auto;
+}
+
+.card {
+    top: 50%;
+    left: 50%;
+    background-image: url('images/background.jpg');
+    background-size: 100% 100%;
+    border: solid white 0.1em;
+    border-radius: 1em;
+    padding: 1em;
+
+    transform-origin: center center;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(var(--orbit-radius) * -1));
+}
+
+.card svg,
+.card svg * {
+    fill: #ffffff;
+}
