@@ -1,3 +1,5 @@
+
+
 .skills-wheel {
     --orbit-radius: 70vw;
 
@@ -106,6 +108,8 @@ body.skills-page main > h1 {
     position: absolute;
     width: clamp(15em, 10%, 20em);
     height: clamp(15em, 15%, 30em);
+    transform-origin: center center;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(var(--orbit-radius) * -1));
 }
 
 .skills-wheel > .card:nth-of-type(1) { --angle: 0deg; }
