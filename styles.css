@@ -160,99 +160,7 @@ header ul {
     padding: 0;
 }
 
-.skills-wheel {
-    --orbit-radius: 70vw;
 
-    height: 175vw;
-    width: 175vw;
-    background-image: url('images/Radial_Gradient.png');
-    background-size: 100% 100%;
-    border-radius: 100vw;
-
-    position: fixed;
-    top: 100vw;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform-origin: center center;
-    animation-name: spin-wheel;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-    animation-timeline: --skills-scroll;
-    animation-range: 0% 100%;
-    transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.skills-wheel:has(.card:focus) {
-    animation-name: none;
-    animation-timeline: auto;
-}
-
-.skills-wheel:has(.card:nth-of-type(1):focus) { transform: translate(-50%, -50%) rotate(0deg); }
-.skills-wheel:has(.card:nth-of-type(2):focus) { transform: translate(-50%, -50%) rotate(-40deg); }
-.skills-wheel:has(.card:nth-of-type(3):focus) { transform: translate(-50%, -50%) rotate(-80deg); }
-.skills-wheel:has(.card:nth-of-type(4):focus) { transform: translate(-50%, -50%) rotate(-120deg); }
-.skills-wheel:has(.card:nth-of-type(5):focus) { transform: translate(-50%, -50%) rotate(-160deg); }
-.skills-wheel:has(.card:nth-of-type(6):focus) { transform: translate(-50%, -50%) rotate(-200deg); }
-.skills-wheel:has(.card:nth-of-type(7):focus) { transform: translate(-50%, -50%) rotate(-240deg); }
-.skills-wheel:has(.card:nth-of-type(8):focus) { transform: translate(-50%, -50%) rotate(-280deg); }
-.skills-wheel:has(.card:nth-of-type(9):focus) { transform: translate(-50%, -50%) rotate(-320deg); }
-
-body.skills-page {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    overflow: hidden;
-}
-
-body.skills-page main {
-    min-height: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scroll-timeline-name: --skills-scroll;
-    scroll-timeline-axis: block;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-body.skills-page main::-webkit-scrollbar {
-    display: none;
-}
-
-body.skills-page main::after {
-    content: "";
-    display: block;
-    height: 400vh;
-}
-
-body.skills-page main > h1 {
-    position: fixed;
-    top: 5.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-}
-
-@keyframes spin-wheel {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-
-    to {
-        transform: translate(-50%, -50%) rotate(-359deg);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .skills-wheel {
-        animation: none;
-    }
-}
-
-.skill {
-    position: absolute;
-    width: 20em;
-    height: 30em;
-}
 
 .card {
     top: 50%;
@@ -271,16 +179,6 @@ body.skills-page main > h1 {
     outline: 0.15em solid #00FFEE;
     outline-offset: 0.2em;
 }
-
-.skills-wheel > .card:nth-of-type(1) { --angle: 0deg; }
-.skills-wheel > .card:nth-of-type(2) { --angle: 40deg; }
-.skills-wheel > .card:nth-of-type(3) { --angle: 80deg; }
-.skills-wheel > .card:nth-of-type(4) { --angle: 120deg; }
-.skills-wheel > .card:nth-of-type(5) { --angle: 160deg; }
-.skills-wheel > .card:nth-of-type(6) { --angle: 200deg; }
-.skills-wheel > .card:nth-of-type(7) { --angle: 240deg; }
-.skills-wheel > .card:nth-of-type(8) { --angle: 280deg; }
-.skills-wheel > .card:nth-of-type(9) { --angle: 320deg; }
 
 .card svg,
 .card svg * {
