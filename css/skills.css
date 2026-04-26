@@ -1,7 +1,11 @@
-
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
 
 .skills-wheel {
-    --orbit-radius: 70vw;
+    --orbit-radius: 68vw;
 
     height: 175vw;
     width: 175vw;
@@ -27,7 +31,7 @@
 
 @media (max-width: 1200px) {
     .skills-wheel {
-        top: calc(50vh + (2250px / 2) - 20vw); /* Increase the offset as needed */
+        top: calc(60vh + (2250px / 2) - 20vw); /* Increase the offset as needed */
         --orbit-radius: 90vh;
     }
 }
@@ -35,7 +39,7 @@
 @media (max-width: 500px) {
     .skills-wheel {
         top: calc(50vh + (2250px / 2) - 20vw); /* Increase the offset as needed */
-        --orbit-radius: 100vh;
+        --orbit-radius: 55em;
     }
 }
 
@@ -106,10 +110,18 @@ body.skills-page main > h1 {
 
 .skill {
     position: absolute;
-    width: clamp(15em, 10%, 20em);
-    height: clamp(15em, 15%, 30em);
+    width: clamp(15em, 25vw, 20em);
+    height: clamp(20em, 30vw, 30em);
     transform-origin: center center;
     transform: translate(-50%, -50%) rotate(var(--angle)) translateY(calc(var(--orbit-radius) * -1));
+}
+
+h2 {
+  font-size: clamp(1em, 1.2vw, 2em);
+}
+
+p {
+  font-size: clamp(0.75em, 1.2vw, 1.25em);
 }
 
 .skills-wheel > .card:nth-of-type(1) { --angle: 0deg; }
